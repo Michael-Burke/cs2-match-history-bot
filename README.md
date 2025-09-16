@@ -5,7 +5,7 @@ Discord bot for Lurker Gaming that tracks specified FACEIT CS2 players and posts
 ## Features
 
 - **Hourly refresh**: pulls FACEIT stats and updates a pinned/rolling status message
-- **Slash commands**: `/refresh`, `/list-players`
+- **Slash commands**: `/refresh`, `/list-players`, `/add-player`, `/remove-player`
 - **Configurable window/time zone**: week is Monday→Monday, `TIME_ZONE` supported
 - **Optional team filter**: set `TEAM_NAME` to exclude league/team matches
 - **Player list file**: `data/faceit_player_names.json`
@@ -18,13 +18,13 @@ Discord bot for Lurker Gaming that tracks specified FACEIT CS2 players and posts
 
 Docker
 ```bash
-docker build -t lg-cs2-bot:latest /home/sedare/coding/lurker-gaming-cs2-bot
-docker compose -f /home/sedare/coding/lurker-gaming-cs2-bot/docker-compose.yaml up -d
+docker build -t cs2-match-bot:latest .
+docker compose up -d
 ```
 
 Local
 ```bash
-go run /home/sedare/coding/lurker-gaming-cs2-bot/main.go
+go run main.go
 ```
 
 ## Environment
@@ -42,7 +42,14 @@ go run /home/sedare/coding/lurker-gaming-cs2-bot/main.go
 ## Commands
 
 - `/refresh`: refreshes current and last week and posts/updates summaries
-- `/list-players`: lists tracked players and resolved FACEIT IDs
+- `/list-players`: lists tracked players and resolved FACEIT IDs (requires Manage Guild)
+- `/add-player name:<string>`: add a player to the tracked list (requires Manage Guild)
+- `/remove-player name:<string>`: remove a player from the tracked list (requires Manage Guild)
+
+Notes:
+
+- Commands are registered per‑guild instantly when `DISCORD_GUILD_ID` is set; otherwise global registration can take up to ~1 hour.
+- Summaries are posted to the channel set by `DISCORD_UPDATE_CHANNEL_ID`. Without it, `/refresh` only responds ephemerally.
 
 ## Player list file
 
