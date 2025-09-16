@@ -1,0 +1,9 @@
+services:
+  lg-cs2-bot:
+    image: lg-cs2-bot:latest
+    env_file:
+      - .env
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    user: 0:0
+    restart: unless-stopped

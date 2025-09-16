@@ -1,0 +1,70 @@
+.env
+.cursor
+scripts/
+
+# Env files
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*
+!example.env
+!.env.example
+
+# Go binaries/tests
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Build artifacts and caches
+bin/
+build/
+dist/
+out/
+tmp/
+.cache/
+
+# Coverage & profiles
+coverage/
+coverage.out
+cover.out
+*.coverprofile
+profile.out
+cpu.prof
+mem.prof
+heap.prof
+pprof/
+.pprof/
+
+# Go workspace (usually local-only)
+go.work
+go.work.sum
+
+# Logs
+*.log
+nohup.out
+
+# Editors / OS
+.vscode/
+.idea/
+*.iml
+*.code-workspace
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.bak
+.fleet/
+
+# direnv
+.direnv/
+.envrc
+
+# Dependency vendoring (uncomment if you do not commit vendor/)
+# vendor/
+
