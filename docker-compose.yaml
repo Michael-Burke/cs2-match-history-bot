@@ -1,6 +1,6 @@
 services:
-  lg-cs2-bot:
-    image: lg-cs2-bot:latest
+  cs2-match-bot:
+    image: cs2-match-bot:latest
     env_file:
       - .env
     volumes:
